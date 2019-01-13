@@ -1,0 +1,68 @@
+{% extends 'base.twig' %}
+
+{% block mainContent %}
+
+    {% block Galerie %}
+
+        {% for element in ListeImages %}
+
+            <img class="miniature" src=" {{ element.url_template }} "alt="texte alternatif" height="100" width="100"/>
+
+        {% endfor %}
+
+    {% endblock Galerie %}</p> {# Affiche les miniatures de tous les memes disponibles #}
+
+    {% block PlanDeTravail %}
+
+        <section>
+            <div id ="ImageGrand"></div>
+
+            <!-- l'id box est le parent sur lequel les div rouge se rèférent en absolute. -->
+            <div class="background" id="box">
+            
+                <!-- afficheimg permet de voir en live le texte écrit dans le formulaire -->
+                <div class="rectangle1" id="deplace1">
+                    <div class="afficheimg" id="afficheimg1"></div>
+                </div>
+
+                <div class="rectangle2" id="deplace2">
+                    <div class="afficheimg" id="afficheimg2"></div>
+                </div>
+            </div>
+        </section>
+
+    {% endblock PlanDeTravail %}
+
+    {% block Formulaire %}
+
+        <section> 
+            <form class="espace" name="my_form" action="?page=memeresultat" method="post">
+
+            <label for="texte1"></label><input type="text" name="texte1" placeholder="Texte 1" class="ecrit1" id="ecrit1"><br/>
+            <input type="hidden" id="left1" name="left1" value=""><br/>
+            <input type="hidden" id="top1" name="top1" value=""><br/>
+            <input type="hidden" id="Rendu" name="Rendu" value=""><br/>
+
+            <label for="texte2"></label><input type="text" name="texte2" placeholder="Texte 2" class="ecrit2" id="ecrit2"><br/>
+            <input type="hidden" id="left2" name="left2" value=""><br/>
+            <input type="hidden" id="top2" name="top2" value=""><br/>
+
+
+            {# <input type="submit" value="Génère ton mème" id="bouton_envoi" name="bouton_envoi"> #}
+            <button type="submit" value="Génère ton mème" id="bouton_envoi" name="bouton_envoi" class="btn btn-warning waves-effect">Génère ton mème</button>
+            </form>
+
+            
+
+        </section>
+
+    {% endblock Formulaire %}
+
+    {% block Meme %}
+        {# Affiche le meme séléctionné par l'utilsiateur en taille réelle #}
+    {% endblock Meme %} 
+
+{% endblock mainContent %}
+
+
+{# {{dump(ListeImages)}} #}

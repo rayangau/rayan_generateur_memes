@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+
+    {% block mainContent %}
+
+        {% block resultat %}
+
+            {% for element in ListeMemes %}
+
+                <img class="miniature" src=" {{ element.ListeMemes }} " alt="texte alternatif" height="100" width="100" />
+
+            {% endfor %}
+
+        {% endblock resultat %}
+
+    {% endblock mainContent %}
